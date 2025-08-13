@@ -5,19 +5,19 @@
 
 :root,
 html[data-theme="light"] {
-  --background: #e8e8e8;
-  --foreground: #564256;
-  --accent: #fc814a;
-  --muted: #bfbfbf;
-  --border: #96939b;
+  --background: #ffffff;
+  --foreground: #000000;
+  --accent: #a18962;
+  --muted: #889993;
+  --border: #755b30;
 }
 
 html[data-theme="dark"] {
-  --background: #171717;
-  --foreground: #bca9bc;
-  --accent: #b53b03;
-  --muted: #68646d;
-  --border: #404040;
+  --background: #2f3039;
+  --foreground: #fff;
+  --accent: #c2b572;
+  --muted: #7d9685;
+  --border: #2e2706;
 }
 
 @theme inline {
@@ -41,6 +41,10 @@ html[data-theme="dark"] {
     @apply flex min-h-svh flex-col bg-background tracking-wide text-foreground selection:bg-accent/75 selection:text-background;
     font-family: Georgia;
   }
+  h1,
+  h2 {
+    @apply text-(--color-muted);
+  }
   a,
   button {
     @apply outline-offset-1 outline-accent focus-visible:no-underline focus-visible:outline-2 focus-visible:outline-dashed;
@@ -54,8 +58,13 @@ html[data-theme="dark"] {
     @apply mx-auto max-w-app px-4;
   }
 
-  section {
-    @apply bg-(--color-background);
+  section,
+  nav + main:not(.about) {
+    @apply rounded-2xl bg-(--color-background) pt-4;
+  }
+
+  section#hero {
+    border-radius: unset;
   }
 }
 
